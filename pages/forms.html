@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Bootstrap Admin Theme</title>
+    <title>New Patient Information</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -291,9 +291,7 @@
                                 <li>
                                     <a href="buttons.html">Buttons</a>
                                 </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
+
                                 <li>
                                     <a href="typography.html">Typography</a>
                                 </li>
@@ -317,18 +315,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="blank.html">Blank Page</a>
-                                </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+                        
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -356,41 +343,50 @@
                                     <form role="form">
                                         <div class="form-group">
                                             <label>First Name</label>
-                                            <input class="form-control">
+                                            <input class="form-control" id="fname" required>
                                             <p class="help-block"></p>
                                         </div>
                                         <div class="form-group">
                                             <label>Last Name</label>
-                                            <input class="form-control">
+                                            <input class="form-control" id="lname" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Patient Photograph</label>
                                             <input type="file">
                                         </div>
                                         <div class="form-group">
-                                            <label>Checkboxes</label>
+                                            <label>Transmittable diseases</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 1
+                                                    <input type="checkbox" id="diseases" value="HIV">HIV
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 2
+                                                    <input type="checkbox" id="diseases" value="hepatitis">Hepatitis
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Checkbox 3
+                                                    <input type="checkbox" id="diseases" value="others" onclick="diseasedisplay(this)">Others
                                                 </label>
                                             </div>
+                                            <div>
+                                                <input class="form-control" type="text" id="disease" style="display:none" placeholder="Please write other diseases">
+                                            </div>
+                                            <script>
+                                              function diseasedisplay(diseases){
+                                                var val=document.getElementById("diseases");
+                                                disease.style.display=diseases.checked?"block":"none";
+                                              }
+                                            </script>
                                         </div>
                                         <div class="form-group">
                                             <label>Address</label>
                                             <textarea class="form-control" rows="3"></textarea>
                                         </div>
                                         <div class="form-group">
-                                        Select Country (with states):<select id="country" name="country"></select>
+                                        Select Country (with states):<select id="country" name="country"></select><br><br>
                                         State:<select id="state" name="state"></select>
                                         <script language="javascript">
                                             populateCountries("country", "state");
@@ -400,6 +396,10 @@
                                         <div class="form-group">
                                             <label for="city">City</label>
                                               <input class="form-control" id="city" type="text" placeholder="City">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pincode">Pin Code</label>
+                                              <input class="form-control" id="pincode" type="text">
                                         </div>
                                         <div class="form-group">
                                             <label>Gender</label>
@@ -419,43 +419,14 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Inline Radio Buttons</label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline1" value="option1" checked>1
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline2" value="option2">2
-                                            </label>
-                                            <label class="radio-inline">
-                                                <input type="radio" name="optionsRadiosInline" id="optionsRadiosInline3" value="option3">3
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Blood Group</label>
-                                            <select class="form-control" id="bloodgroups" name="bloodgroups">
-                                                <option value="Op">O+</option>
-                                                <option value="On">O-</option>
-                                                <option value="Ap">A+</option>
-                                                <option value="An">A-</option>
-                                                <option value="Bp">B+</option>
-                                                <option value="Bn">B-</option>
-                                                <option value="ABp">AB+</option>
-                                                <option value="ABn">AB-</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Multiple Selects</label>
-                                            <select multiple class="form-control">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                            </select>
-                                        </div>
+                                        <div class="col-lg">
+                                          <label for="regdate">Registration Date:</label>
+                                          <input class="form-control" type="date" name="regisdate" id="regisdate" placeholder="Mostly it's today's date" required>
+                                        </div><br>
+                                        <div class="col-lg">
                                         <button type="submit" class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
+                                      </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
@@ -468,7 +439,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="mediclaim-info">Mediclaim info</label>
-                                                <input class="form-control" id="mediclaiminfo" type="text" placeholder="Disabled input">
+                                                <input class="form-control" id="mediclaiminfo" type="text" placeholder="Mediclaim number">
                                             </div>
                                             <script type="text/javascript">
                                             function changet()
@@ -481,14 +452,51 @@
                                             }
                                             </script>
 
-                                    <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label>Blood Group</label>
+                                                <select class="form-control" id="bloodgroups" name="bloodgroups">
+                                                    <option value="Op">O+</option>
+                                                    <option value="On">O-</option>
+                                                    <option value="Ap">A+</option>
+                                                    <option value="An">A-</option>
+                                                    <option value="Bp">B+</option>
+                                                    <option value="Bn">B-</option>
+                                                    <option value="ABp">AB+</option>
+                                                    <option value="ABn">AB-</option>
+                                                </select>
+                                            </div>
+                                    <div class="col-lg">
                                       <div class="form-group">
-                                          <label>First Name</label>
-                                          <input class="form-control" type="text">
+                                          <label>Telephone Number:</label>
+                                          <input class="form-control" type="number" id="tno">
                                       </div>
                                       <div class="form-group">
-                                          <label>Last Name</label>
-                                          <input class="form-control" type="text">
+                                          <label>Mobile Number</label>
+                                          <input class="form-control" patern="" type="number" id="mno" required>
+                                      </div>
+                                      <div class="form-group">
+                                          <label>E-mail</label>
+                                          <input class="form-control" type="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Language</label>
+                                          <input class="form-control" type="text" id="language" placeholder="Language you can read properly">
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Occupation</label>
+                                          <input class="form-control" type="text" id="occupation" >
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Referred by:</label>
+                                          <input class="form-control" type="text" id="reference" >
+                                      </div>
+                                      <div class="form-group">
+                                          <label>Comments:</label>
+                                          <textarea class="form-control" rows="3"></textarea>
+                                      </div>
+                                      <div class="col-lg">
+                                        <label for="regdate">Appointement Date:</label>
+                                        <input class="form-control" type="date" name="appdate" id="appdate">
                                       </div>
                                     </div>
                                 </div>
